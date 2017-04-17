@@ -41,7 +41,7 @@ SCRIPT
   config.vm.define "lb" do |lb|
     lb.vm.box = DEFAULT_BOX
     lb.vm.hostname = "lb" + DOMAIN_NAME
-    ln.vm.network "private_network", ip: "192.168.11.99", netmask: "255.255.255.0"
+    lb.vm.network "private_network", ip: "192.168.11.99", netmask: "255.255.255.0"
     config.vm.provision "shell", inline: $hosts_setup
   end
 
@@ -72,7 +72,7 @@ SCRIPT
   config.vm.define "knode1" do |knode1|
     knode1.vm.box = DEFAULT_BOX
     knode1.vm.hostname = "knode1" + DOMAIN_NAME
-    kmaster3.vm.network "private_network", ip: "192.168.11.110", netmask: "255.255.255.0"
+    knode1.vm.network "private_network", ip: "192.168.11.110", netmask: "255.255.255.0"
     config.vm.provision "shell", inline: $knode_script
     config.vm.provision "shell", inline: $hosts_setup
   end
@@ -80,7 +80,7 @@ SCRIPT
   config.vm.define "knode2" do |knode2|
     knode2.vm.box = DEFAULT_BOX
     knode2.vm.hostname = "knode2" + DOMAIN_NAME
-    kmaster3.vm.network "private_network", ip: "192.168.11.111", netmask: "255.255.255.0"
+    knode2.vm.network "private_network", ip: "192.168.11.111", netmask: "255.255.255.0"
     config.vm.provision "shell", inline: $knode_script
     config.vm.provision "shell", inline: $hosts_setup
   end
