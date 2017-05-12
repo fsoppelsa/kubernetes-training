@@ -112,7 +112,7 @@ services:
     rootfsPropagation: shared
 files:
   - path: root/.ssh/authorized_keys
-    contents: 'ssh-rsa ...'
+    contents: '# Your ssh key goes here'
   - {path: etc/cni, directory: true}
   - {path: opt/cni, directory: true}
 outputs:
